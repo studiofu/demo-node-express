@@ -37,21 +37,41 @@ function asyncPro() {
     });
 }
 
-function main() {
-    var initializePromise = initialize();
-    initializePromise.then(function(result) {
-        userDetails = result;
-        console.log("Initialized user details");
-        // Use user details from here
-        console.log(userDetails)
-    }, function(err) {
-        console.log(err);
-    })
+function asyncProFailure() {
+    return new Promise(function(resolve, reject) {
+        console.log('test');        
+        reject('failed');
+    });
+}
 
+function main() {
+    console.log('start main.............');
+
+    var initializePromise = initialize();
+    // initializePromise.then(function(result) {
+    //     userDetails = result;
+    //     console.log("Initialized user details 1st");
+    //     // Use user details from here
+    //     console.log(userDetails)
+    // }, function(err) {
+    //     console.log(err);
+    // })
 
     asyncPro().then(function(msg){
         console.log(msg);
     });
+
+    console.log('try failure');
+    
+    asyncProFailure().then(function(msg) {
+        console.log(msg);
+        
+    }).catch(function(msg) {
+        console.log('promise rejected: ' + msg)
+    });
+
+
+    console.log('end main.............');
 }
 
 main();

@@ -31,3 +31,11 @@ tutorial and specification
 https://github.com/cisco/node-jose
 https://developer.cisco.com/codeexchange/github/repo/cisco/node-jose/
 https://connect2id.com/products/nimbus-jose-jwt/examples/jws-with-rsa-signature
+
+
+# install typescript and ts-node
+npm install typescript ts-node
+
+refer to add.ts as sample
+run ts-node add.ts to process the typescript file
+

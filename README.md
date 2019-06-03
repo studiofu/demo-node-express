@@ -31,3 +31,10 @@ tutorial and specification
 https://github.com/cisco/node-jose
 https://developer.cisco.com/codeexchange/github/repo/cisco/node-jose/
 https://connect2id.com/products/nimbus-jose-jwt/examples/jws-with-rsa-signature
+
+# test rxjs
+npm install rxjs
+pm install --save rxjs-compat
+
+var Rx = require('rxjs/Rx');
+Rx.Observable.of(1,2,3);

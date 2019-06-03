@@ -1,12 +1,25 @@
 
-let Observable = Rx.Observable
+var Rx = require('rxjs/Rx');
+var Observable = require('rxjs/Observable').Observable;
+require('rxjs/add/observable/of');
+require('rxjs/add/operator/map');
+require('rxjs/operators/tap');
+var of = require('rxjs/observable/of').of;
+var map = require('rxjs/operator/map').map;
+var tap = require('rxjs/operators/tap').tap;
+
 let resultA, resultB, resultC
 
 const fetch = require('node-fetch')
 
 function getComments() {
-  const promise = fetch(`http://jsonplaceholder.typicode.com/comments`)
+  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+  console.log('inside get comments');
+  const promise = fetch(`https://jsonplaceholder.typicode.com/comments`)
     .then(x => x.json())
+    //.then(data => console.log(data));
+
+    console.log("promoise: " + promise);
   return Observable.fromPromise(promise)
 }
 
@@ -21,6 +34,12 @@ function getComments() {
 //     conosle.log(resultA, resultB, resultC)
 //   })
 
-getComments().do(
-    x => console.log(x)
-)
+// getComments().do(
+//     x => console.log(x)
+// )
+
+getComments().pipe(
+  tap(x=>console.log(x))
+).subscribe(x=>x)
+;
+

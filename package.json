@@ -18,6 +18,8 @@
     "request": "^2.88.0",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.4.0"
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3333"
   },
   "devDependencies": {
     "@types/es6-promise": "^3.3.0"

@@ -38,3 +38,11 @@ pm install --save rxjs-compat
 
 var Rx = require('rxjs/Rx');
 Rx.Observable.of(1,2,3);
+=======
+
+# install typescript and ts-node
+npm install typescript ts-node
+
+refer to add.ts as sample
+run ts-node add.ts to process the typescript file
+
